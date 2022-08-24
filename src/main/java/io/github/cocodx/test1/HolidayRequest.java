@@ -1,19 +1,15 @@
 package io.github.cocodx.test1;
 
-import org.flowable.engine.ProcessEngine;
-import org.flowable.engine.ProcessEngineConfiguration;
-import org.flowable.engine.RepositoryService;
-import org.flowable.engine.RuntimeService;
+import org.flowable.engine.*;
 import org.flowable.engine.impl.cfg.StandaloneProcessEngineConfiguration;
 import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.repository.DeploymentBuilder;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.flowable.engine.repository.ProcessDefinitionQuery;
 import org.flowable.engine.runtime.ProcessInstance;
+import org.flowable.task.api.Task;
 
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author amazfit
@@ -57,6 +53,28 @@ public class HolidayRequest {
         variables.put("description",description);
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("holiday-request", variables);
         //这时候是已经启动了一个用户任务，用户是一个等待状态（wait state）
+
+
+        //获得实际的任务列表,配置查询只返回“manager”组的任务
+        TaskService taskService = processEngine.getTaskService();
+        List<Task> tasks = taskService.createTaskQuery().taskCandidateGroup("managers").list();
+        System.out.println("You have "+tasks.size()+" tasks:"   );
+        for (int i = 0; i < tasks.size(); i++) {
+            System.out.println((i+1)+") "+ tasks.get(i).getName());
+        }
+
+        //使用任务id获取特定流程实例的变量，并在屏幕中显示实际的申请
+        System.out.println("which task would you like to complete？");
+        Integer taskIndex = Integer.valueOf(scanner.nextLine());
+        Task task = tasks.get(taskIndex-1);
+        Map<String, Object> processVariables = taskService.getVariables(task.getId());
+        System.out.println(processVariables.get("employee")+" wants "+processVariables.get("nrOfHolidays") + " of holidays. Do you approve this?");
+
+        //批准这个任务
+        boolean approved = scanner.nextLine().toLowerCase().equals("y");
+        HashMap<String, Object> variables1 = new HashMap<>();
+        variables1.put("approved",approved);
+        taskService.complete(task.getId(),variables1);
 
 
     }
