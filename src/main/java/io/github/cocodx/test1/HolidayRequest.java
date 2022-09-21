@@ -29,7 +29,7 @@ public class HolidayRequest {
 
         RepositoryService repositoryService = processEngine.getRepositoryService();
         Deployment deployment = repositoryService.createDeployment().addClasspathResource("holiday-request.bpmn20.xml").deploy();
-
+        //创建流程实例
         ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().deploymentId(deployment.getId()).singleResult();
         System.out.println("Found process definition" + processDefinition.getName());
 
