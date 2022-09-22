@@ -10,7 +10,7 @@
         <startEvent id="startEvent"/>
         <sequenceFlow sourceRef="startEvent" targetRef="approveTask"/>
 
-        <userTask id="approveTask" name="Approve or reject request" flowable:candidateGroups="managers" />
+        <userTask id="approveTask" name="Approve or reject request" flowable:candidateGroups="managers" flowable:candidateUsers="" />
         <sequenceFlow sourceRef="approveTask" targetRef="decision"/>
 
         <exclusiveGateway id="decision"/>

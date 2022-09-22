@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-engine</artifactId>
-            <version>6.3.0</version>
+            <version>6.6.0</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -43,5 +43,15 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+            <version>42.3.4</version>
+        </dependency>
+
+
+
     </dependencies>
 </project>
