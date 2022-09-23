@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef" exporter="Flowable Open Source Modeler" exporterVersion="6.7.2">
+  <process id="weixiu" name="weixiuProcess" isExecutable="true" flowable:candidateStarterUsers="user1">
+    <documentation>维系流程</documentation>
+    <startEvent id="sid-FCE5C57E-9671-4FD0-9CF4-60C93F81FE59" flowable:formFieldValidation="true"></startEvent>
+    <userTask id="sid-CCD9EDF5-727A-4EF6-A5ED-D51CF7A69CC3" name="维修人处理任务" flowable:assignee="${taskUser}" flowable:formFieldValidation="true">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+      <multiInstanceLoopCharacteristics isSequential="false" flowable:collection="taskUserList" flowable:elementVariable="taskUser" flowable:assignee="${taskUser}">
+        <extensionElements></extensionElements>
+        <completionCondition>${nrOfCompletedInstances==nrOfInstances}</completionCondition>
+      </multiInstanceLoopCharacteristics>
+    </userTask>
+    <sequenceFlow id="sid-00E9F0A1-05F0-41C9-ADDC-672D3B935A35" sourceRef="sid-FCE5C57E-9671-4FD0-9CF4-60C93F81FE59" targetRef="sid-CCD9EDF5-727A-4EF6-A5ED-D51CF7A69CC3"></sequenceFlow>
+    <endEvent id="sid-888FD186-95DD-421A-9E4E-85A0409A39F8"></endEvent>
+    <sequenceFlow id="sid-CCEB8069-6F03-44AD-BED4-2A25AEF677FB" sourceRef="sid-CCD9EDF5-727A-4EF6-A5ED-D51CF7A69CC3" targetRef="sid-888FD186-95DD-421A-9E4E-85A0409A39F8"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_weixiu">
+    <bpmndi:BPMNPlane bpmnElement="weixiu" id="BPMNPlane_weixiu">
+      <bpmndi:BPMNShape bpmnElement="sid-FCE5C57E-9671-4FD0-9CF4-60C93F81FE59" id="BPMNShape_sid-FCE5C57E-9671-4FD0-9CF4-60C93F81FE59">
+        <omgdc:Bounds height="30.000000000000014" width="30.0" x="182.89893865400526" y="106.69104754816975"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-CCD9EDF5-727A-4EF6-A5ED-D51CF7A69CC3" id="BPMNShape_sid-CCD9EDF5-727A-4EF6-A5ED-D51CF7A69CC3">
+        <omgdc:Bounds height="80.0" width="100.0" x="350.55629908684347" y="81.69104754816976"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-888FD186-95DD-421A-9E4E-85A0409A39F8" id="BPMNShape_sid-888FD186-95DD-421A-9E4E-85A0409A39F8">
+        <omgdc:Bounds height="28.0" width="28.0" x="630.0" y="107.69104754816976"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-CCEB8069-6F03-44AD-BED4-2A25AEF677FB" id="BPMNEdge_sid-CCEB8069-6F03-44AD-BED4-2A25AEF677FB" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="450.50629908680787" y="121.69104754816976"></omgdi:waypoint>
+        <omgdi:waypoint x="630.0" y="121.69104754816976"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-00E9F0A1-05F0-41C9-ADDC-672D3B935A35" id="BPMNEdge_sid-00E9F0A1-05F0-41C9-ADDC-672D3B935A35" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.000000000000007" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="212.8489382089296" y="121.69104754816976"></omgdi:waypoint>
+        <omgdi:waypoint x="350.55629908684347" y="121.69104754816976"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
