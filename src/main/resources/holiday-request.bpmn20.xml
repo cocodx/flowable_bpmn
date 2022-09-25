@@ -43,8 +43,4 @@
         <endEvent id="rejectEnd"/>
 
     </process>
-    <bpmndi:BPMNDiagram id="BPMNDiagram_holiday-request">
-        <bpmndi:BPMNPlane bpmnElement="holiday-request" id="BPMNPlane_holiday-request">
-        </bpmndi:BPMNPlane>
-    </bpmndi:BPMNDiagram>
 </definitions>
