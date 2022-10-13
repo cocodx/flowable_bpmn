@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="ceshikey" name="ceshi" isExecutable="true">
+    <startEvent id="startEvent1" name="开始" flowable:formFieldValidation="true"></startEvent>
+    <userTask id="sid-C0532635-D35F-469F-86CF-A48F82A7DC7D" name="审批1" flowable:assignee="6" flowable:formFieldValidation="true"></userTask>
+    <sequenceFlow id="sid-947D2CDE-E6A5-47CF-A30D-32DCF375BC72" sourceRef="startEvent1" targetRef="sid-C0532635-D35F-469F-86CF-A48F82A7DC7D"></sequenceFlow>
+    <userTask id="sid-ABEF8303-074D-425B-89DC-7970B4F2599E" name="审批3" flowable:assignee="7" flowable:formFieldValidation="true"></userTask>
+    <userTask id="sid-C902F49F-153F-43C4-BF8F-2386F9EB9460" name="审批2" flowable:assignee="8" flowable:formFieldValidation="true"></userTask>
+    <sequenceFlow id="sid-160D0921-3283-41AB-AB77-42EAC0E57F81" sourceRef="sid-C0532635-D35F-469F-86CF-A48F82A7DC7D" targetRef="sid-C902F49F-153F-43C4-BF8F-2386F9EB9460"></sequenceFlow>
+    <sequenceFlow id="sid-1376FFE1-6EE7-444D-8859-68727DF85DCD" sourceRef="sid-C0532635-D35F-469F-86CF-A48F82A7DC7D" targetRef="sid-ABEF8303-074D-425B-89DC-7970B4F2599E"></sequenceFlow>
+    <userTask id="sid-157D9EFD-8F90-42F3-A2A5-37FF571E6DF8" name="审批4" flowable:assignee="9" flowable:formFieldValidation="true"></userTask>
+    <sequenceFlow id="sid-1FDB5DB7-402E-4844-95FE-4D7838175441" sourceRef="sid-ABEF8303-074D-425B-89DC-7970B4F2599E" targetRef="sid-157D9EFD-8F90-42F3-A2A5-37FF571E6DF8"></sequenceFlow>
+    <sequenceFlow id="sid-A9A0A949-1360-46DE-AEDC-93BE92159E96" sourceRef="sid-C902F49F-153F-43C4-BF8F-2386F9EB9460" targetRef="sid-157D9EFD-8F90-42F3-A2A5-37FF571E6DF8"></sequenceFlow>
+    <endEvent id="sid-9FB234E2-63E5-4B20-9AB8-0704357ECB78" name="结束"></endEvent>
+    <sequenceFlow id="sid-588541C9-82BC-4D16-AEEE-184F70EC1D28" sourceRef="sid-157D9EFD-8F90-42F3-A2A5-37FF571E6DF8" targetRef="sid-9FB234E2-63E5-4B20-9AB8-0704357ECB78"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_ceshikey">
+    <bpmndi:BPMNPlane bpmnElement="ceshikey" id="BPMNPlane_ceshikey">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-C0532635-D35F-469F-86CF-A48F82A7DC7D" id="BPMNShape_sid-C0532635-D35F-469F-86CF-A48F82A7DC7D">
+        <omgdc:Bounds height="80.0" width="100.0" x="300.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-ABEF8303-074D-425B-89DC-7970B4F2599E" id="BPMNShape_sid-ABEF8303-074D-425B-89DC-7970B4F2599E">
+        <omgdc:Bounds height="80.0" width="100.0" x="495.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-C902F49F-153F-43C4-BF8F-2386F9EB9460" id="BPMNShape_sid-C902F49F-153F-43C4-BF8F-2386F9EB9460">
+        <omgdc:Bounds height="80.0" width="100.0" x="495.0" y="195.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-157D9EFD-8F90-42F3-A2A5-37FF571E6DF8" id="BPMNShape_sid-157D9EFD-8F90-42F3-A2A5-37FF571E6DF8">
+        <omgdc:Bounds height="80.0" width="100.0" x="780.0" y="120.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-9FB234E2-63E5-4B20-9AB8-0704357ECB78" id="BPMNShape_sid-9FB234E2-63E5-4B20-9AB8-0704357ECB78">
+        <omgdc:Bounds height="28.0" width="28.0" x="1035.0" y="146.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-A9A0A949-1360-46DE-AEDC-93BE92159E96" id="BPMNEdge_sid-A9A0A949-1360-46DE-AEDC-93BE92159E96">
+        <omgdi:waypoint x="594.95" y="235.0"></omgdi:waypoint>
+        <omgdi:waypoint x="830.0" y="235.0"></omgdi:waypoint>
+        <omgdi:waypoint x="830.0" y="199.95"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-1FDB5DB7-402E-4844-95FE-4D7838175441" id="BPMNEdge_sid-1FDB5DB7-402E-4844-95FE-4D7838175441">
+        <omgdi:waypoint x="594.949999999983" y="70.0"></omgdi:waypoint>
+        <omgdi:waypoint x="830.0" y="70.0"></omgdi:waypoint>
+        <omgdi:waypoint x="830.0" y="120.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-160D0921-3283-41AB-AB77-42EAC0E57F81" id="BPMNEdge_sid-160D0921-3283-41AB-AB77-42EAC0E57F81">
+        <omgdi:waypoint x="350.0" y="217.95000000000002"></omgdi:waypoint>
+        <omgdi:waypoint x="350.0" y="235.0"></omgdi:waypoint>
+        <omgdi:waypoint x="495.0" y="235.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-1376FFE1-6EE7-444D-8859-68727DF85DCD" id="BPMNEdge_sid-1376FFE1-6EE7-444D-8859-68727DF85DCD">
+        <omgdi:waypoint x="350.0" y="138.0"></omgdi:waypoint>
+        <omgdi:waypoint x="350.0" y="70.0"></omgdi:waypoint>
+        <omgdi:waypoint x="494.9999999999774" y="70.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-588541C9-82BC-4D16-AEEE-184F70EC1D28" id="BPMNEdge_sid-588541C9-82BC-4D16-AEEE-184F70EC1D28">
+        <omgdi:waypoint x="879.9499999999925" y="160.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1035.0" y="160.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-947D2CDE-E6A5-47CF-A30D-32DCF375BC72" id="BPMNEdge_sid-947D2CDE-E6A5-47CF-A30D-32DCF375BC72">
+        <omgdi:waypoint x="129.94999966898092" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="299.9999999999644" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
